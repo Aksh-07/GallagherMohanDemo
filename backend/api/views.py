@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -8,6 +9,8 @@ from pdf_extractor.settings import BASE_DIR
 from .forms import UploadPdfForm
 from .models import Invoice
 
+
+@login_required
 def upload_pdf_view(request: HttpRequest) -> HttpResponse:
     form = UploadPdfForm()
 
@@ -36,6 +39,7 @@ def upload_pdf_view(request: HttpRequest) -> HttpResponse:
     return render(request, "api/upload_pdf.html", context)
 
 
+@login_required
 def parsed_invoice(request: HttpRequest, invoice_id: int) -> HttpResponse:
     invoice = Invoice.objects.get(id=invoice_id)
     context = {"invoice": invoice}

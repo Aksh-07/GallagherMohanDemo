@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsed Invoice</title>
+</head>
+<body>
+    <main>
+        <h3>Yay! The invoice has been parsed successfully</h3>
+        <table>
+            <thead>
+              <th>Invoice Date</th>  
+              <th>Invoice Number</th>  
+              <th>Invoice Amount</th>  
+              <th>Invoice Due Date</th>  
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ invoice.invoice_date }}</td>
+                    <td>{{ invoice.invoice_number }}</td>
+                    <td>{{ invoice.amount }}</td>
+                    <td>{{ invoice.due_date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

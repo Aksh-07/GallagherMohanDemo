@@ -4,26 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parsed Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h3 {
+            color: #333;
+        }
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .logout-container {
+            margin-top: 20px;
+        }
+        .logout-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+    </style>
 </head>
 <body>
     <main>
-        <h3>Yay! The invoice has been parsed successfully</h3>
+        <h3>🎉 Yay! The invoice has been parsed successfully</h3>
         <table>
             <thead>
-              <th>Invoice Date</th>  
-              <th>Invoice Number</th>  
-              <th>Invoice Amount</th>  
-              <th>Invoice Due Date</th>  
+                <tr>
+                    <th>Invoice Date</th>  
+                    <th>Invoice Number</th>  
+                    <th>Invoice Amount</th>  
+                    <th>Invoice Due Date</th>  
+                </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ invoice.invoice_date }}</td>
-                    <td>{{ invoice.invoice_number }}</td>
-                    <td>{{ invoice.amount }}</td>
-                    <td>{{ invoice.due_date }}</td>
+                    <td>{{ invoice.invoice_date|default:"None" }}</td>
+                    <td>{{ invoice.invoice_number|default:"None" }}</td>
+                    <td>{{ invoice.amount|default:"None" }}</td>
+                    <td>{{ invoice.due_date|default:"None" }}</td>
                 </tr>
             </tbody>
         </table>
     </main>
+
+    <!-- Secure Logout Button (POST Request) -->
+    <div class="logout-container">
+        <form action="{% url 'api:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
 </body>
 </html>

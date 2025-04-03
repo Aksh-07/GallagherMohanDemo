@@ -17,12 +17,12 @@ If someone clones the repository and needs to run it locally, follow these steps
 1. **Clone the repository**:
    ```bash
    git clone <repository_url>
-   cd pdf_extractor
+   cd GallagherMohanDemo/backend/
    ```
 
 2. **Set up a virtual environment and activate it**:
    ```bash
-   python -m venv venv
+   python -m venv venv / or use / python3 -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
@@ -30,6 +30,20 @@ If someone clones the repository and needs to run it locally, follow these steps
    ```bash
    pip install -r requirements.txt
    ```
+4. **setup env variable**:
+   we need to set google gemini api key
+   
+   in ubuntu
+   ```bash
+   touch .env
+   nano .env
+   ```
+   in windows create a file named .env and save the api key
+   
+   add your api key as :
+   GEMINI_API_KEY=`YOUR_API_KEY`
+   
+   and save the file
 
 4. **Apply migrations**:
    ```bash

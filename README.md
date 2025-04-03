@@ -13,6 +13,7 @@ PDF Extractor is a Django-based web application that allows users to upload PDFs
 ## How to Set Up Locally After Cloning
 
 If someone clones the repository and needs to run it locally, follow these steps:
+P.S. **setup ssh before cloning**
 
 1. **Clone the repository**:
    ```bash
